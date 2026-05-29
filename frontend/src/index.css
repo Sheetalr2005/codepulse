@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GLOBAL */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  scroll-behavior: smooth;
+}
+
+/* BODY */
+
+body {
+  background: #020817;
+
+  color: white;
+
+  font-family: Inter, sans-serif;
+
+  overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* SELECTION */
+
+::selection {
+  background: #9333ea;
+
+  color: white;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+  width: 10px;
+
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020817;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+
+  border-radius: 999px;
+
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* BUTTONS */
+
+button {
+  transition: all 0.3s ease;
+}
+
+/* INPUTS */
+
+input,
+textarea,
+select {
+  transition: all 0.3s ease;
+}
+
+/* LINKS */
+
+a {
+  transition: all 0.3s ease;
+
+  text-decoration: none;
+}
+
+/* HOVER POLISH */
+
+.hover-card {
+  transition: all 0.3s ease;
+}
+
+.hover-card:hover {
+  transform: translateY(-3px);
+}
+
+/* REMOVE BLUE TAP */
+
+input,
+button,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.35);
+  border-radius: 999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.55);
+}
