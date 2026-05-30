@@ -2,6 +2,7 @@ package com.interviewplatform.backend.controller;
 
 import com.interviewplatform.backend.dto.LoginRequest;
 import com.interviewplatform.backend.dto.SignupRequest;
+import com.interviewplatform.backend.dto.AuthResponse;
 
 import com.interviewplatform.backend.service.AuthService;
 
@@ -10,9 +11,6 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.*;
-import com.interviewplatform.backend.dto.AuthResponse;
-
-@CrossOrigin(origins = "http://localhost:5173")
 
 @RestController
 @RequestMapping("/api/auth")
