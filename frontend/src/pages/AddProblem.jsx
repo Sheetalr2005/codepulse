@@ -73,7 +73,7 @@ function AddProblem() {
         userId: Number(localStorage.getItem("userId")),
       };
 
-      await axios.post("http://localhost:8080/api/problems", payload);
+      await axios.post("https://codepulse-backend-a9xg.onrender.com/api/problems", payload);
 
       toast.success("Problem Added Successfully");
 
