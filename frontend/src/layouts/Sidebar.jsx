@@ -16,12 +16,11 @@ function Sidebar() {
   `;
 
   return (
-<div className="w-[350px] h-screen sticky top-0 bg-[#040B1A]/95 backdrop-blur-xl border-r border-white/5 px-6 py-7 flex flex-col relative overflow-hidden">      {/* SIDEBAR GLOW */}
-
+    <div className="w-[350px] h-screen sticky top-0 bg-[#040B1A]/95 backdrop-blur-xl border-r border-white/5 px-6 py-7 flex flex-col relative overflow-hidden">
+      {" "}
+      {/* SIDEBAR GLOW */}
       <div className="absolute top-[100px] left-[-120px] w-[260px] h-[260px] bg-purple-600/20 blur-[120px] rounded-full"></div>
-
       {/* TOP */}
-
       <div className="relative z-10">
         {/* LOGO */}
 
@@ -108,9 +107,7 @@ function Sidebar() {
           </NavLink>
         </div>
       </div>
-
       {/* BOTTOM */}
-
       <div className="relative z-10 mt-auto">
         {/* KEEP GRINDING */}
 

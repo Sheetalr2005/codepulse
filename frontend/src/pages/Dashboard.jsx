@@ -22,10 +22,10 @@ function Dashboard() {
   }, []);
 
   const fetchProblems = async () => {
-    try {
-      const response = await axios.get(
-        `http://localhost:8080/api/problems/user/${localStorage.getItem("userId")}`,
-      );
+   try {
+  const response = await axios.get(
+    `https://codepulse-backend-a9xg.onrender.com/api/problems/user/${localStorage.getItem("userId")}`,
+  );
 
       setProblems(Array.isArray(response.data) ? response.data : []);
     } catch (error) {
