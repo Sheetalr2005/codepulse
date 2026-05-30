@@ -50,7 +50,7 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
 
         configuration.setAllowedOrigins(
-    List.of("https://codepulse-app.onrender.com")
+    List.of("https://codepulse-frontend-zk7u.onrender.com")
 );
 
         configuration.setAllowedMethods(
