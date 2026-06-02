@@ -41,7 +41,7 @@ function Sidebar() {
       <div
         className="
 hidden lg:flex
-w-[300px]
+w-[320px]
 h-screen
 fixed
 left-0

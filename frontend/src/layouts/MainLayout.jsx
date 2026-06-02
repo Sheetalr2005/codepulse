@@ -11,7 +11,7 @@ function MainLayout({ children }) {
       <Sidebar />
 
       {/* MAIN CONTENT */}
-      <div className="lg:ml-[300px] min-h-screen relative">
+      <div className="lg:ml-[320px] min-h-screen relative">
         
         {/* BACKGROUND */}
         <div className="absolute inset-0 overflow-hidden">
