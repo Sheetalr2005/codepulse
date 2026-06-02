@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import MainLayout from "../components/MainLayout";
-import StatCard from "../components/ui/StatCard.jsx";
+import MainLayout from "../layouts/MainLayout";
+import StatCard from "../components/ui/StatCard";
 
 function Analytics() {
   const navigate = useNavigate();
