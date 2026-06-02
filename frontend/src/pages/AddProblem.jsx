@@ -158,7 +158,7 @@ function AddProblem() {
 
               <p className="text-gray-400 mb-3">Interview Preparation Workspace</p>
 
-              <h1 className="text-5xl font-black text-white">CodeIQ</h1>
+              <h1 className="text-5xl font-black text-white">CodePulse</h1>
 
               <p className="text-purple-400 mt-3">Structured DSA Progress Tracking</p>
             </div>

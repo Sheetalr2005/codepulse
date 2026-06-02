@@ -24,9 +24,9 @@ function Analytics() {
 
   const fetchProblems = async () => {
     try {
-  const response = await axios.get(
-    `https://codepulse-backend-a9xg.onrender.com/api/problems/user/${localStorage.getItem("userId")}`,
-  );
+      const response = await axios.get(
+        `https://codepulse-backend-a9xg.onrender.com/api/problems/user/${localStorage.getItem("userId")}`,
+      );
       setProblems(Array.isArray(response.data) ? response.data : []);
     } catch (error) {
       console.log(error);
@@ -105,6 +105,7 @@ function Analytics() {
   }
 
   currentStreak = streak;
+  localStorage.setItem("currentStreak", currentStreak);
 
   // HEATMAP
 
