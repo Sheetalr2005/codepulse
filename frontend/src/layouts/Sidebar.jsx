@@ -40,23 +40,22 @@ function Sidebar() {
       {/* DESKTOP SIDEBAR */}
       <div
         className="
-          hidden lg:flex
-       w-[290px] xl:w-[320px]
-          h-screen
-          fixed
-          top-0
-          left-0
-          bg-[#040B1A]/95
-          backdrop-blur-xl
-          border-r
-          border-white/5
-          px-6
-          py-7
-          flex-col
-          relative
-          overflow-hidden
-          z-40
-        "
+hidden lg:flex
+w-[300px]
+h-screen
+fixed
+left-0
+top-0
+bg-[#040B1A]/95
+backdrop-blur-xl
+border-r
+border-white/5
+px-6
+py-7
+flex-col
+z-50
+overflow-hidden
+"
       >
         {/* SIDEBAR GLOW */}
         <div className="absolute top-[100px] left-[-120px] w-[260px] h-[260px] bg-purple-600/20 blur-[120px] rounded-full"></div>
@@ -64,39 +63,21 @@ function Sidebar() {
         {/* TOP */}
         <div className="relative z-10">
           {/* LOGO */}
-          {/* LOGO */}
-<div className="flex items-start gap-3 mb-12">
-  
-  {/* ICON */}
-  <div className="min-w-[58px] w-[58px] h-[58px] rounded-3xl bg-gradient-to-br from-purple-600 to-blue-500 flex items-center justify-center text-white text-xl font-bold shadow-[0_0_35px_rgba(139,92,246,0.45)]">
-    {"</>"}
-  </div>
+          <div className="flex items-center gap-4 mb-14">
+            <div className="w-16 h-16 rounded-3xl bg-gradient-to-br from-purple-600 to-blue-500 flex items-center justify-center text-white text-2xl font-bold shadow-[0_0_35px_rgba(139,92,246,0.45)]">
+              {"</>"}
+            </div>
 
-  {/* TEXT */}
-  <div className="min-w-0">
-    <h1
-      className="
-        text-[42px]
-        leading-[0.9]
-        font-black
-        tracking-tight
-        bg-gradient-to-r
-        from-white
-        via-purple-200
-        to-purple-500
-        bg-clip-text
-        text-transparent
-        break-words
-      "
-    >
-      CodePulse
-    </h1>
+            <div>
+              <h1 className="text-5xl font-black tracking-tight bg-gradient-to-r from-white via-purple-200 to-purple-500 bg-clip-text text-transparent">
+                CodePulse
+              </h1>
 
-    <p className="text-gray-400 text-xs mt-2 leading-relaxed max-w-[180px]">
-      Smart Coding Interview Tracker
-    </p>
-  </div>
-</div>
+              <p className="text-gray-400 text-sm mt-1 leading-relaxed">
+                Smart Coding Interview Tracker
+              </p>
+            </div>
+          </div>
 
           {/* NAVIGATION */}
           <div className="flex flex-col gap-3">
@@ -178,9 +159,7 @@ function Sidebar() {
               <div className="mt-6">
                 <p className="text-gray-400 text-sm mb-2">Current Streak</p>
 
-                <h2 className="text-5xl font-black text-purple-400">
-  {streak} Days
-</h2>
+                <h2 className="text-5xl font-black text-purple-400">{streak} Days</h2>
               </div>
             </div>
           </div>

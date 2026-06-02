@@ -32,7 +32,7 @@ function LandingPage() {
 
             <div>
               <h1 className="text-5xl font-black tracking-tight bg-gradient-to-r from-white via-purple-200 to-purple-500 bg-clip-text text-transparent">
-                CodeIQ
+                CodePulse
               </h1>
 
               <p className="text-gray-500 mt-2">Smart Coding Interview Tracker</p>
