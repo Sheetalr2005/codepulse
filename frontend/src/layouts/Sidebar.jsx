@@ -41,7 +41,7 @@ function Sidebar() {
       <div
         className="
           hidden lg:flex
-          w-[320px]
+       w-[290px] xl:w-[320px]
           h-screen
           fixed
           top-0
@@ -64,21 +64,39 @@ function Sidebar() {
         {/* TOP */}
         <div className="relative z-10">
           {/* LOGO */}
-          <div className="flex items-center gap-4 mb-14">
-            <div className="w-16 h-16 rounded-3xl bg-gradient-to-br from-purple-600 to-blue-500 flex items-center justify-center text-white text-2xl font-bold shadow-[0_0_35px_rgba(139,92,246,0.45)]">
-              {"</>"}
-            </div>
+          {/* LOGO */}
+<div className="flex items-start gap-3 mb-12">
+  
+  {/* ICON */}
+  <div className="min-w-[58px] w-[58px] h-[58px] rounded-3xl bg-gradient-to-br from-purple-600 to-blue-500 flex items-center justify-center text-white text-xl font-bold shadow-[0_0_35px_rgba(139,92,246,0.45)]">
+    {"</>"}
+  </div>
 
-            <div>
-              <h1 className="text-5xl font-black tracking-tight bg-gradient-to-r from-white via-purple-200 to-purple-500 bg-clip-text text-transparent">
-                CodePulse
-              </h1>
+  {/* TEXT */}
+  <div className="min-w-0">
+    <h1
+      className="
+        text-[42px]
+        leading-[0.9]
+        font-black
+        tracking-tight
+        bg-gradient-to-r
+        from-white
+        via-purple-200
+        to-purple-500
+        bg-clip-text
+        text-transparent
+        break-words
+      "
+    >
+      CodePulse
+    </h1>
 
-              <p className="text-gray-400 text-sm mt-1 leading-relaxed">
-                Smart Coding Interview Tracker
-              </p>
-            </div>
-          </div>
+    <p className="text-gray-400 text-xs mt-2 leading-relaxed max-w-[180px]">
+      Smart Coding Interview Tracker
+    </p>
+  </div>
+</div>
 
           {/* NAVIGATION */}
           <div className="flex flex-col gap-3">

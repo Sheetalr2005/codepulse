@@ -107,7 +107,7 @@ function Login() {
 
           <div className="mb-10">
             <h1 className="text-7xl font-black tracking-tight bg-gradient-to-r from-white via-purple-200 to-purple-500 bg-clip-text text-transparent">
-              CodeIQ
+              CodePulse
             </h1>
 
             <p className="text-gray-400 text-xl mt-4 leading-relaxed max-w-[550px]">

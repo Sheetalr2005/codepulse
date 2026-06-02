@@ -35,10 +35,7 @@ function Signup() {
     try {
       setLoading(true);
 
-      await axios.post(
-        "https://codepulse-backend-a9xg.onrender.com/api/auth/signup",
-        formData
-      );
+      await axios.post("https://codepulse-backend-a9xg.onrender.com/api/auth/signup", formData);
 
       toast.success("Account created successfully 🚀");
 
@@ -75,12 +72,12 @@ function Signup() {
         >
           <div className="mb-10">
             <h1 className="text-7xl font-black tracking-tight bg-gradient-to-r from-white via-purple-200 to-purple-500 bg-clip-text text-transparent">
-              CodeIQ
+              CodePulse
             </h1>
 
             <p className="text-gray-400 text-xl mt-4 leading-relaxed max-w-[550px]">
-              Build coding consistency, track DSA progress, and become
-              interview ready with smart analytics.
+              Build coding consistency, track DSA progress, and become interview ready with smart
+              analytics.
             </p>
           </div>
 
@@ -94,13 +91,10 @@ function Signup() {
                 </div>
 
                 <div>
-                  <h2 className="text-2xl font-bold mb-3">
-                    Smart Dashboard
-                  </h2>
+                  <h2 className="text-2xl font-bold mb-3">Smart Dashboard</h2>
 
                   <p className="text-gray-400 leading-relaxed">
-                    Track coding problems, solved questions, and preparation
-                    journey.
+                    Track coding problems, solved questions, and preparation journey.
                   </p>
                 </div>
               </div>
@@ -115,13 +109,10 @@ function Signup() {
                 </div>
 
                 <div>
-                  <h2 className="text-2xl font-bold mb-3">
-                    Streak Tracking
-                  </h2>
+                  <h2 className="text-2xl font-bold mb-3">Streak Tracking</h2>
 
                   <p className="text-gray-400 leading-relaxed">
-                    Stay consistent and build long coding streaks for interview
-                    preparation.
+                    Stay consistent and build long coding streaks for interview preparation.
                   </p>
                 </div>
               </div>
@@ -139,9 +130,7 @@ function Signup() {
 
           <div className="relative z-10">
             <div className="mb-10">
-              <h1 className="text-5xl font-black tracking-tight mb-4">
-                Create Account
-              </h1>
+              <h1 className="text-5xl font-black tracking-tight mb-4">Create Account</h1>
 
               <p className="text-gray-400 text-lg leading-relaxed">
                 Start your coding interview journey today.
@@ -156,9 +145,7 @@ function Signup() {
               }}
             >
               <div>
-                <label className="block text-gray-300 mb-3">
-                  Full Name
-                </label>
+                <label className="block text-gray-300 mb-3">Full Name</label>
 
                 <Input
                   type="text"
@@ -170,9 +157,7 @@ function Signup() {
               </div>
 
               <div>
-                <label className="block text-gray-300 mb-3">
-                  Email Address
-                </label>
+                <label className="block text-gray-300 mb-3">Email Address</label>
 
                 <Input
                   type="email"
@@ -184,9 +169,7 @@ function Signup() {
               </div>
 
               <div>
-                <label className="block text-gray-300 mb-3">
-                  Password
-                </label>
+                <label className="block text-gray-300 mb-3">Password</label>
 
                 <Input
                   type="password"
