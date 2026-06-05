@@ -75,6 +75,42 @@ function AddProblem() {
 
       await axios.post("https://codepulse-backend-a9xg.onrender.com/api/problems", payload);
 
+      // STREAK UPDATE
+
+if (formData.solved) {
+  const today = new Date().toDateString();
+
+  const lastSolvedDate = localStorage.getItem("lastSolvedDate");
+  let currentStreak =
+    parseInt(localStorage.getItem("currentStreak")) || 0;
+
+  let bestStreak =
+    parseInt(localStorage.getItem("bestStreak")) || 0;
+
+  if (lastSolvedDate !== today) {
+    currentStreak += 1;
+
+    if (currentStreak > bestStreak) {
+      bestStreak = currentStreak;
+    }
+
+    localStorage.setItem(
+      "currentStreak",
+      currentStreak
+    );
+
+    localStorage.setItem(
+      "bestStreak",
+      bestStreak
+    );
+
+    localStorage.setItem(
+      "lastSolvedDate",
+      today
+    );
+  }
+}
+
       toast.success("Problem Added Successfully");
 
       navigate("/problems");

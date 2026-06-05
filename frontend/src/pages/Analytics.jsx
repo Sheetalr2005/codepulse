@@ -20,7 +20,7 @@ function Analytics() {
         `https://codepulse-backend-a9xg.onrender.com/api/problems/user/${localStorage.getItem("userId")}`,
       );
 
-      console.log("Analytics API Response:", response.data);
+      
 
       setProblems(Array.isArray(response.data) ? response.data : []);
     } catch (error) {
@@ -94,12 +94,7 @@ function Analytics() {
 
   const heatmapData = Array(70).fill(0);
 
-  console.log(
-  problems.map((p) => ({
-    title: p.title,
-    solvedDate: p.solvedDate,
-  }))
-);
+  
 
   problems.forEach((problem) => {
     if (!problem.solvedDate) return;
@@ -108,21 +103,14 @@ function Analytics() {
 
     const daysAgo = Math.floor((new Date() - date) / (1000 * 60 * 60 * 24));
 
-    console.log(
-    "Problem:",
-    problem.title,
-    "Date:",
-    problem.solvedDate,
-    "DaysAgo:",
-    daysAgo
-  );
+    
 
     if (daysAgo >= 0 && daysAgo < 70) {
       heatmapData[69 - daysAgo] += 1;
     }
   });
 
-  console.log("Heatmap Data:", heatmapData);
+  
 
   // =========================
   // DYNAMIC RECOMMENDATIONS
