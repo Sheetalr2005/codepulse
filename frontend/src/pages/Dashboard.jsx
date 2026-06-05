@@ -5,14 +5,7 @@ import MainLayout from "../layouts/MainLayout";
 
 import { motion } from "framer-motion";
 
-import {
-  Activity,
-  BarChart3,
-  BrainCircuit,
-  Flame,
-  Trophy,
-  Code2,
-} from "lucide-react";
+import { Activity, BarChart3, BrainCircuit, Flame, Trophy, Code2 } from "lucide-react";
 
 import StatCard from "../components/ui/StatCard";
 import Card from "../components/ui/Card";
@@ -28,9 +21,7 @@ function Dashboard() {
   const fetchProblems = async () => {
     try {
       const response = await axios.get(
-        `https://codepulse-backend-a9xg.onrender.com/api/problems/user/${localStorage.getItem(
-          "userId"
-        )}`
+        `http://localhost:8080/api/problems/user/${localStorage.getItem("userId")}`,
       );
 
       setProblems(Array.isArray(response.data) ? response.data : []);
@@ -43,26 +34,15 @@ function Dashboard() {
 
   const totalProblems = problems.length;
 
-  const easyProblems = problems.filter(
-    (p) => p.difficulty === "Easy"
-  ).length;
+  const easyProblems = problems.filter((p) => p.difficulty === "Easy").length;
 
-  const mediumProblems = problems.filter(
-    (p) => p.difficulty === "Medium"
-  ).length;
+  const mediumProblems = problems.filter((p) => p.difficulty === "Medium").length;
 
-  const hardProblems = problems.filter(
-    (p) => p.difficulty === "Hard"
-  ).length;
+  const hardProblems = problems.filter((p) => p.difficulty === "Hard").length;
 
-  const solvedProblems = problems.filter(
-    (p) => p.solved === true
-  ).length;
+  const solvedProblems = problems.filter((p) => p.solved === true).length;
 
-  const solvedPercentage =
-    totalProblems > 0
-      ? (solvedProblems / totalProblems) * 100
-      : 0;
+  const solvedPercentage = totalProblems > 0 ? (solvedProblems / totalProblems) * 100 : 0;
 
   // TRENDS
 
@@ -176,9 +156,7 @@ function Dashboard() {
               <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-white/[0.03] border border-white/10 mb-6">
                 <Activity size={18} className="text-purple-400" />
 
-                <span className="text-gray-300">
-                  Smart Interview Dashboard
-                </span>
+                <span className="text-gray-300">Smart Interview Dashboard</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl xl:text-6xl font-black tracking-tight leading-[1]">
@@ -189,8 +167,8 @@ function Dashboard() {
               </h1>
 
               <p className="text-gray-400 mt-4 text-lg max-w-[620px] leading-relaxed">
-                Track coding interview preparation, monitor consistency,
-                improve DSA performance, and stay interview ready every day.
+                Track coding interview preparation, monitor consistency, improve DSA performance,
+                and stay interview ready every day.
               </p>
             </div>
 
@@ -239,25 +217,20 @@ function Dashboard() {
                   strokeDasharray={690}
                   initial={{ strokeDashoffset: 690 }}
                   animate={{
-                    strokeDashoffset:
-                      690 - (690 * solvedPercentage) / 100,
+                    strokeDashoffset: 690 - (690 * solvedPercentage) / 100,
                   }}
                   transition={{ duration: 1.6 }}
                 />
               </svg>
 
               <div className="relative z-10 text-center">
-                <p className="text-xs text-gray-400 mb-2 tracking-wide">
-                  Interview Readiness
-                </p>
+                <p className="text-xs text-gray-400 mb-2 tracking-wide">Interview Readiness</p>
 
                 <h1 className="text-5xl font-black leading-none text-white">
                   {Math.round(solvedPercentage)}%
                 </h1>
 
-                <p className="text-purple-400 mt-2 text-sm font-medium">
-                  Progress Score
-                </p>
+                <p className="text-purple-400 mt-2 text-sm font-medium">Progress Score</p>
               </div>
             </motion.div>
           </div>

@@ -17,10 +17,8 @@ function Analytics() {
   const fetchProblems = async () => {
     try {
       const response = await axios.get(
-        `https://codepulse-backend-a9xg.onrender.com/api/problems/user/${localStorage.getItem("userId")}`,
+        `http://localhost:8080/api/problems/user/${localStorage.getItem("userId")}`,
       );
-
-      
 
       setProblems(Array.isArray(response.data) ? response.data : []);
     } catch (error) {
@@ -52,10 +50,8 @@ function Analytics() {
 
   const successRate = totalProblems > 0 ? ((solvedProblems / totalProblems) * 100).toFixed(0) : 0;
 
-  const [streak, setStreak] = useState(0);
-
   const bestStreak = parseInt(localStorage.getItem("bestStreak")) || 0;
-
+  const currentStreak = Number(localStorage.getItem("currentStreak")) || 0;
   // =========================
   // MONTHS
   // =========================
@@ -92,40 +88,19 @@ function Analytics() {
   // HEATMAP
   // =========================
 
-  const currentMonth = new Date();
+  const heatmapData = Array(70).fill(0);
 
-    const year = currentMonth.getFullYear();
+  problems.forEach((problem) => {
+    if (!problem.solvedDate) return;
 
-    const month = currentMonth.getMonth();
+    const date = new Date(problem.solvedDate + "T00:00:00");
 
-    const monthName = currentMonth.toLocaleString("default", {
-      month: "long",
-    });
+    const daysAgo = Math.floor((Date.now() - date.getTime()) / (1000 * 60 * 60 * 24));
 
-    const daysInMonth = new Date(
-      year,
-      month + 1,
-      0
-    ).getDate();
-
-    const heatmapData = Array(daysInMonth).fill(0);
-
-    problems.forEach((problem) => {
-      if (!problem.solvedDate) return;
-
-      const date = new Date(problem.solvedDate + "T00:00:00");
-
-      if (
-        date.getMonth() === month &&
-        date.getFullYear() === year
-      ) {
-        const day = date.getDate();
-
-        heatmapData[day - 1]++;
-      }
-    });
-
-  
+    if (daysAgo >= 0 && daysAgo < 70) {
+      heatmapData[69 - daysAgo] += 1;
+    }
+  });
 
   // =========================
   // DYNAMIC RECOMMENDATIONS
@@ -149,7 +124,7 @@ function Analytics() {
     });
   }
 
-  if (streak < 3) {
+  if (currentStreak < 3) {
     recommendations.push({
       title: "Maintain Daily Streak",
       text: "Consistency is more important than intensity.",
@@ -266,7 +241,7 @@ function Analytics() {
         {/* HEATMAP */}
 
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-          <div className="xl:col-span-2 bg-[#0f172a]/80 border border-white/10 rounded-[32px] p-8">
+          <div className="bg-[#0f172a]/80 border border-white/10 rounded-[32px] p-8">
             <div className="flex items-center justify-between mb-8">
               <div>
                 <h2 className="text-4xl font-black text-white">Submission Heatmap</h2>
@@ -277,65 +252,56 @@ function Analytics() {
               <div className="text-3xl text-orange-400">🔥</div>
             </div>
 
-            <div className="text-gray-400 text-sm mb-5">
-              {monthName} {year}
+            <div className="grid grid-cols-3 max-w-[500px] text-gray-500 text-sm mb-5">
+              <span>Apr</span>
+              <span className="text-center">May</span>
+              <span className="text-right">Jun</span>
             </div>
 
-            <div className="flex flex-col xl:flex-row gap-10 items-start">
-                      
+            <div className="flex gap-10 items-start">
+              {/* FIXED GRID */}
 
-            {/* FIXED GRID */}
-
-            <div className="grid grid-cols-7 sm:grid-cols-10 gap-3">
-              {heatmapData.map((count, i) => (
-                <div
+              <div className="grid grid-cols-10 gap-3">
+                {heatmapData.map((count, i) => (
+                  <div
                     key={i}
                     title={`Day ${i + 1} • ${count} solved`}
                     className={`w-4 h-4 rounded-md transition-all ${
-                    count === 0
-                      ? "bg-white/5"
-                      : count === 1
-                      ? "bg-green-400"
-                      : count <= 3
-                      ? "bg-green-500"
-                      : count <= 5
-                      ? "bg-green-600"
-                      : "bg-green-700 shadow-[0_0_12px_rgba(74,222,128,0.8)]"
-                  }`}
-                />
-              ))}
-            </div>
-
-            {/* STREAK */}
-
-            <div className="flex flex-col gap-6">
-              <div className="bg-[#111827] border border-white/5 rounded-3xl p-6 w-full xl:w-[180px]">
-                <div className="text-2xl">🔥</div>
-
-                <p className="text-gray-400 text-sm mt-4">
-                  Current Streak
-                </p>
-
-                <h3 className="text-5xl font-black text-orange-400 mt-2">
-                  {streak}
-                </h3>
+                      count === 0
+                        ? "bg-white/5"
+                        : count === 1
+                          ? "bg-green-400"
+                          : count <= 3
+                            ? "bg-green-500"
+                            : count <= 5
+                              ? "bg-green-600"
+                              : "bg-green-700 shadow-[0_0_12px_rgba(74,222,128,0.8)]"
+                    }`}
+                  />
+                ))}
               </div>
 
-              <div className="bg-[#111827] border border-white/5 rounded-3xl p-6 w-full xl:w-[180px]">
-                <div className="text-2xl">🏆</div>
+              {/* STREAK */}
 
-                <p className="text-gray-400 text-sm mt-4">
-                  Best Streak
-                </p>
+              <div className="flex flex-col gap-6">
+                <div className="bg-[#111827] border border-white/5 rounded-3xl p-6 w-full xl:w-[180px]">
+                  <div className="text-2xl">🔥</div>
 
-                <h3 className="text-5xl font-black text-purple-400 mt-2">
-                  {bestStreak}
-                </h3>
+                  <p className="text-gray-400 text-sm mt-4">Current Streak</p>
+
+                  <h3 className="text-5xl font-black text-orange-400 mt-2">{currentStreak}</h3>
+                </div>
+
+                <div className="bg-[#111827] border border-white/5 rounded-3xl p-6 w-full xl:w-[180px]">
+                  <div className="text-2xl">🏆</div>
+
+                  <p className="text-gray-400 text-sm mt-4">Best Streak</p>
+
+                  <h3 className="text-5xl font-black text-purple-400 mt-2">{bestStreak}</h3>
+                </div>
               </div>
             </div>
           </div>
-          </div>
-      
 
           {/* DIFFICULTY */}
 
@@ -377,14 +343,13 @@ function Analytics() {
             </div>
           </div>
         </div>
-        
 
         {/* BOTTOM */}
 
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
           {/* TOPICS */}
 
-          <div className="xl:col-span-2 bg-[#0f172a]/80 border border-white/10 rounded-[32px] p-8">
+          <div className="bg-[#0f172a]/80 border border-white/10 rounded-[32px] p-8">
             <h2 className="text-4xl font-black text-white mb-8">Problems by Topic</h2>
 
             {topicCounts.length > 0 ? (

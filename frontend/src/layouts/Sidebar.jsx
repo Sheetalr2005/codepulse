@@ -10,24 +10,21 @@ function Sidebar() {
   const username = localStorage.getItem("email")?.split("@")[0];
   const [streak, setStreak] = useState(0);
 
-
   useEffect(() => {
-  fetchStreak();
-}, []);
+    fetchStreak();
+  }, []);
 
-const fetchStreak = async () => {
-  try {
-    const userId = localStorage.getItem("userId");
+  const fetchStreak = async () => {
+    try {
+      const userId = localStorage.getItem("userId");
 
-    const response = await axios.get(
-      `https://codepulse-backend-a9xg.onrender.com/api/solved/streak/${userId}`
-    );
+      const response = await axios.get(`http://localhost:8080/api/solved/streak/${userId}`);
 
-    setStreak(response.data);
-  } catch (error) {
-    console.log(error);
-  }
-};
+      setStreak(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const navItemStyle = `
     flex items-center gap-4
@@ -188,13 +185,13 @@ overflow-hidden
           {/* LOGOUT */}
           <div className="mt-5 pt-5 border-t border-white/5">
             <button
-                        onClick={() => {
-            localStorage.removeItem("token");
-            localStorage.removeItem("email");
-            localStorage.removeItem("userId");
+              onClick={() => {
+                localStorage.removeItem("token");
+                localStorage.removeItem("email");
+                localStorage.removeItem("userId");
 
-            navigate("/login");
-          }}
+                navigate("/login");
+              }}
               className="
                 w-full flex items-center gap-4
                 px-5 py-4 rounded-2xl

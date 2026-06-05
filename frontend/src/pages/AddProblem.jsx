@@ -73,43 +73,32 @@ function AddProblem() {
         userId: Number(localStorage.getItem("userId")),
       };
 
-      await axios.post("https://codepulse-backend-a9xg.onrender.com/api/problems", payload);
+      await axios.post("http://localhost:8080/api/problems", payload);
 
       // STREAK UPDATE
 
-if (formData.solved) {
-  const today = new Date().toDateString();
+      if (formData.solved) {
+        const today = new Date().toDateString();
 
-  const lastSolvedDate = localStorage.getItem("lastSolvedDate");
-  let currentStreak =
-    parseInt(localStorage.getItem("currentStreak")) || 0;
+        const lastSolvedDate = localStorage.getItem("lastSolvedDate");
+        let currentStreak = parseInt(localStorage.getItem("currentStreak")) || 0;
 
-  let bestStreak =
-    parseInt(localStorage.getItem("bestStreak")) || 0;
+        let bestStreak = parseInt(localStorage.getItem("bestStreak")) || 0;
 
-  if (lastSolvedDate !== today) {
-    currentStreak += 1;
+        if (lastSolvedDate !== today) {
+          currentStreak += 1;
 
-    if (currentStreak > bestStreak) {
-      bestStreak = currentStreak;
-    }
+          if (currentStreak > bestStreak) {
+            bestStreak = currentStreak;
+          }
 
-    localStorage.setItem(
-      "currentStreak",
-      currentStreak
-    );
+          localStorage.setItem("currentStreak", currentStreak);
 
-    localStorage.setItem(
-      "bestStreak",
-      bestStreak
-    );
+          localStorage.setItem("bestStreak", bestStreak);
 
-    localStorage.setItem(
-      "lastSolvedDate",
-      today
-    );
-  }
-}
+          localStorage.setItem("lastSolvedDate", today);
+        }
+      }
 
       toast.success("Problem Added Successfully");
 

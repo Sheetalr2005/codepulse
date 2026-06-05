@@ -29,9 +29,9 @@ function Problems() {
 
   const fetchProblems = async () => {
     try {
-  const response = await axios.get(
-    `https://codepulse-backend-a9xg.onrender.com/api/problems/user/${localStorage.getItem("userId")}`,
-  );
+      const response = await axios.get(
+        `http://localhost:8080/api/problems/user/${localStorage.getItem("userId")}`,
+      );
 
       setProblems(response.data);
     } catch (error) {
@@ -47,7 +47,7 @@ function Problems() {
 
   const deleteProblem = async (id) => {
     try {
-      await axios.delete(`https://codepulse-backend-a9xg.onrender.com/api/problems/${id}`);
+      await axios.delete(`http://localhost:8080/api/problems/${id}`);
 
       fetchProblems();
 
@@ -61,10 +61,7 @@ function Problems() {
 
   const updateProblem = async () => {
     try {
-      await axios.put(
-  `https://codepulse-backend-a9xg.onrender.com/api/problems/${editProblem.id}`,
-  editProblem
-);
+      await axios.put(`http://localhost:8080/api/problems/${editProblem.id}`, editProblem);
 
       setEditProblem(null);
 

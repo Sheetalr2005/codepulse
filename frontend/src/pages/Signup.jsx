@@ -35,7 +35,7 @@ function Signup() {
     try {
       setLoading(true);
 
-      await axios.post("https://codepulse-backend-a9xg.onrender.com/api/auth/signup", formData);
+      await axios.post("http://localhost:8080/api/auth/signup", formData);
 
       toast.success("Account created successfully 🚀");
 

@@ -49,8 +49,11 @@ public class SecurityConfig {
 
         CorsConfiguration configuration = new CorsConfiguration();
 
-        configuration.setAllowedOrigins(
-    List.of("https://codepulse-frontend-zk7u.onrender.com")
+       configuration.setAllowedOrigins(
+    List.of(
+        "https://codepulse-frontend-zk7u.onrender.com",
+        "http://localhost:5173"
+    )
 );
 
         configuration.setAllowedMethods(
