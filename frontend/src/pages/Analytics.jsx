@@ -1,13 +1,34 @@
-import { useMemo } from "react";
+
 import { useNavigate } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import StatCard from "../components/ui/StatCard";
+import { useEffect, useMemo, useState } from "react";
+import axios from "axios";
 
 function Analytics() {
   const navigate = useNavigate();
 
-  const problems = JSON.parse(localStorage.getItem("problems")) || [];
+  const [problems, setProblems] = useState([]);
 
+useEffect(() => {
+  fetchProblems();
+}, []);
+
+const fetchProblems = async () => {
+  try {
+    const response = await axios.get(
+      `https://codepulse-backend-a9xg.onrender.com/api/problems/user/${localStorage.getItem("userId")}`
+    );
+
+    console.log("Analytics API Response:", response.data);
+
+    setProblems(Array.isArray(response.data) ? response.data : []);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+  
   // =========================
   // BASIC STATS
   // =========================
@@ -15,8 +36,8 @@ function Analytics() {
   const totalProblems = problems.length;
 
   const solvedProblems = problems.filter(
-    (p) => p.status === "Solved"
-  ).length;
+  (p) => p.solved === true
+).length;
 
   const favoriteProblems = problems.filter(
     (p) => p.favorite
@@ -40,7 +61,7 @@ function Analytics() {
       : 0;
 
   const streak =
-    parseInt(localStorage.getItem("streak")) || 0;
+  parseInt(localStorage.getItem("currentStreak")) || 0;
 
   const bestStreak =
     parseInt(localStorage.getItem("bestStreak")) || 0;
