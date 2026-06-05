@@ -1,4 +1,10 @@
-
+import {
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
+  Tooltip,
+} from "recharts";
 import { useNavigate } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import StatCard from "../components/ui/StatCard";
@@ -54,6 +60,12 @@ const fetchProblems = async () => {
   const hardProblems = problems.filter(
     (p) => p.difficulty === "Hard"
   ).length;
+
+  const difficultyData = [
+  { name: "Easy", value: easyProblems, color: "#22c55e" },
+  { name: "Medium", value: mediumProblems, color: "#eab308" },
+  { name: "Hard", value: hardProblems, color: "#ef4444" },
+].filter(item => item.value > 0);
 
   const successRate =
     totalProblems > 0
@@ -341,32 +353,57 @@ const fetchProblems = async () => {
           {/* DIFFICULTY */}
 
           <div className="bg-[#0f172a]/80 border border-white/10 rounded-[32px] p-8">
+          <h2 className="text-4xl font-black text-white mb-8">
+            Difficulty Breakdown
+          </h2>
 
-            <h2 className="text-4xl font-black text-white">
-              Difficulty Breakdown
-            </h2>
+          <div className="h-[260px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  data={difficultyData}
+                  dataKey="value"
+                  nameKey="name"
+                  innerRadius={60}
+                  outerRadius={90}
+                  paddingAngle={4}
+                >
+                  {difficultyData.map((entry, index) => (
+                    <Cell
+                      key={index}
+                      fill={entry.color}
+                    />
+                  ))}
+                </Pie>
 
-            <div className="mt-10 space-y-5">
-
-              <div className="flex justify-between">
-                <span className="text-green-400">Easy</span>
-                <span className="text-white">{easyProblems}</span>
-              </div>
-
-              <div className="flex justify-between">
-                <span className="text-yellow-400">Medium</span>
-                <span className="text-white">{mediumProblems}</span>
-              </div>
-
-              <div className="flex justify-between">
-                <span className="text-red-400">Hard</span>
-                <span className="text-white">{hardProblems}</span>
-              </div>
-
-            </div>
-
+                <Tooltip />
+              </PieChart>
+            </ResponsiveContainer>
           </div>
 
+          <div className="space-y-3 mt-4">
+            {difficultyData.map((item) => (
+              <div
+                key={item.name}
+                className="flex justify-between items-center"
+              >
+                <div className="flex items-center gap-3">
+                  <div
+                    className="w-3 h-3 rounded-full"
+                    style={{ background: item.color }}
+                  />
+                  <span className="text-white">
+                    {item.name}
+                  </span>
+                </div>
+
+                <span className="text-gray-300">
+                  {item.value}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
         </div>
 
         {/* BOTTOM */}
