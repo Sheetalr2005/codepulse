@@ -281,13 +281,12 @@ function Analytics() {
               {monthName} {year}
             </div>
 
-            <div className="flex gap-10 items-start">
-
+            <div className="flex flex-col xl:flex-row gap-10 items-start">
                       
 
             {/* FIXED GRID */}
 
-            <div className="grid grid-cols-10 gap-3">
+            <div className="grid grid-cols-7 sm:grid-cols-10 gap-3">
               {heatmapData.map((count, i) => (
                 <div
                     key={i}
@@ -310,7 +309,7 @@ function Analytics() {
             {/* STREAK */}
 
             <div className="flex flex-col gap-6">
-              <div className="bg-[#111827] border border-white/5 rounded-3xl p-6 w-[180px]">
+              <div className="bg-[#111827] border border-white/5 rounded-3xl p-6 w-full xl:w-[180px]">
                 <div className="text-2xl">🔥</div>
 
                 <p className="text-gray-400 text-sm mt-4">
@@ -322,7 +321,7 @@ function Analytics() {
                 </h3>
               </div>
 
-              <div className="bg-[#111827] border border-white/5 rounded-3xl p-6 w-[180px]">
+              <div className="bg-[#111827] border border-white/5 rounded-3xl p-6 w-full xl:w-[180px]">
                 <div className="text-2xl">🏆</div>
 
                 <p className="text-gray-400 text-sm mt-4">
@@ -335,6 +334,8 @@ function Analytics() {
               </div>
             </div>
           </div>
+          </div>
+      
 
           {/* DIFFICULTY */}
 
@@ -376,6 +377,7 @@ function Analytics() {
             </div>
           </div>
         </div>
+        
 
         {/* BOTTOM */}
 
@@ -430,7 +432,6 @@ function Analytics() {
           </div>
         </div>
       </div>
-    </div>
     </MainLayout>
   );
 }
