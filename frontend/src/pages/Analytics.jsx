@@ -52,7 +52,7 @@ function Analytics() {
 
   const successRate = totalProblems > 0 ? ((solvedProblems / totalProblems) * 100).toFixed(0) : 0;
 
-  const streak = parseInt(localStorage.getItem("currentStreak")) || 0;
+  const [streak, setStreak] = useState(0);
 
   const bestStreak = parseInt(localStorage.getItem("bestStreak")) || 0;
 
@@ -281,14 +281,18 @@ function Analytics() {
               {monthName} {year}
             </div>
 
+            <div className="flex gap-10 items-start">
+
+                      
+
             {/* FIXED GRID */}
 
-            <div className="grid grid-cols-7 gap-2 max-w-[340px]">
+            <div className="grid grid-cols-10 gap-3">
               {heatmapData.map((count, i) => (
                 <div
                     key={i}
                     title={`Day ${i + 1} • ${count} solved`}
-                    className={`w-5 h-5 rounded-md transition-all ${
+                    className={`w-4 h-4 rounded-md transition-all ${
                     count === 0
                       ? "bg-white/5"
                       : count === 1
@@ -305,21 +309,29 @@ function Analytics() {
 
             {/* STREAK */}
 
-            <div className="flex gap-6 mt-10 flex-wrap">
+            <div className="flex flex-col gap-6">
               <div className="bg-[#111827] border border-white/5 rounded-3xl p-6 w-[180px]">
                 <div className="text-2xl">🔥</div>
 
-                <p className="text-gray-400 text-sm mt-4">Current Streak</p>
+                <p className="text-gray-400 text-sm mt-4">
+                  Current Streak
+                </p>
 
-                <h3 className="text-5xl font-black text-orange-400 mt-2">{streak}</h3>
+                <h3 className="text-5xl font-black text-orange-400 mt-2">
+                  {streak}
+                </h3>
               </div>
 
               <div className="bg-[#111827] border border-white/5 rounded-3xl p-6 w-[180px]">
                 <div className="text-2xl">🏆</div>
 
-                <p className="text-gray-400 text-sm mt-4">Best Streak</p>
+                <p className="text-gray-400 text-sm mt-4">
+                  Best Streak
+                </p>
 
-                <h3 className="text-5xl font-black text-purple-400 mt-2">{bestStreak}</h3>
+                <h3 className="text-5xl font-black text-purple-400 mt-2">
+                  {bestStreak}
+                </h3>
               </div>
             </div>
           </div>
@@ -418,6 +430,7 @@ function Analytics() {
           </div>
         </div>
       </div>
+    </div>
     </MainLayout>
   );
 }
