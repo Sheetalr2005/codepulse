@@ -34,6 +34,8 @@ const fetchProblems = async () => {
   }
 };
 
+
+
   
   // =========================
   // BASIC STATS
@@ -117,9 +119,21 @@ const fetchProblems = async () => {
   // HEATMAP
   // =========================
 
-  const heatmapData = Array.from({ length: 70 }, (_, i) => {
-    return i < solvedProblems;
-  });
+  const heatmapData = Array(70).fill(0);
+
+problems.forEach((problem) => {
+  if (!problem.date) return;
+
+  const date = new Date(problem.date);
+
+  const daysAgo = Math.floor(
+    (new Date() - date) / (1000 * 60 * 60 * 24)
+  );
+
+  if (daysAgo >= 0 && daysAgo < 70) {
+    heatmapData[69 - daysAgo] += 1;
+  }
+});
 
   // =========================
   // DYNAMIC RECOMMENDATIONS
@@ -301,12 +315,16 @@ const fetchProblems = async () => {
 
             <div className="grid grid-cols-10 gap-2 max-w-[500px]">
 
-              {heatmapData.map((active, i) => (
+              {heatmapData.map((count, i) => (
                 <div
                   key={i}
-                  className={`w-5 h-5 rounded-md ${
-                    active
-                      ? "bg-green-500 shadow-[0_0_12px_rgba(34,197,94,0.8)]"
+                  className={`w-5 h-5 rounded-md transition-all ${
+                    count >= 4
+                      ? "bg-green-400 shadow-[0_0_12px_rgba(74,222,128,0.8)]"
+                      : count >= 2
+                      ? "bg-green-500"
+                      : count >= 1
+                      ? "bg-green-700"
                       : "bg-white/5"
                   }`}
                 />
