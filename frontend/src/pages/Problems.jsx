@@ -30,7 +30,7 @@ function Problems() {
   const fetchProblems = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/problems/user/${localStorage.getItem("userId")}`,
+        `${import.meta.env.VITE_API_URL}/api/problems/user/${localStorage.getItem("userId")}`,
       );
 
       setProblems(response.data);
@@ -47,7 +47,7 @@ function Problems() {
 
   const deleteProblem = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/api/problems/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/api/problems/${id}`);
 
       fetchProblems();
 
@@ -61,7 +61,10 @@ function Problems() {
 
   const updateProblem = async () => {
     try {
-      await axios.put(`http://localhost:8080/api/problems/${editProblem.id}`, editProblem);
+      await axios.put(
+        `${import.meta.env.VITE_API_URL}/api/problems/${editProblem.id}`,
+        editProblem,
+      );
 
       setEditProblem(null);
 

@@ -73,7 +73,7 @@ function AddProblem() {
         userId: Number(localStorage.getItem("userId")),
       };
 
-      await axios.post("http://localhost:8080/api/problems", payload);
+      await axios.post("${import.meta.env.VITE_API_URL}/api/problems", payload);
 
       // STREAK UPDATE
 

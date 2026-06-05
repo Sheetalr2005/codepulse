@@ -18,7 +18,9 @@ function Sidebar() {
     try {
       const userId = localStorage.getItem("userId");
 
-      const response = await axios.get(`http://localhost:8080/api/solved/streak/${userId}`);
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/solved/streak/${userId}`,
+      );
 
       setStreak(response.data);
     } catch (error) {

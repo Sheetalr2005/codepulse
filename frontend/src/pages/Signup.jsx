@@ -35,7 +35,7 @@ function Signup() {
     try {
       setLoading(true);
 
-      await axios.post("http://localhost:8080/api/auth/signup", formData);
+      await axios.post("${import.meta.env.VITE_API_URL}/api/auth/signup", formData);
 
       toast.success("Account created successfully 🚀");
 
