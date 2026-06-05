@@ -108,6 +108,15 @@ function Analytics() {
 
     const daysAgo = Math.floor((new Date() - date) / (1000 * 60 * 60 * 24));
 
+    console.log(
+    "Problem:",
+    problem.title,
+    "Date:",
+    problem.solvedDate,
+    "DaysAgo:",
+    daysAgo
+  );
+
     if (daysAgo >= 0 && daysAgo < 70) {
       heatmapData[69 - daysAgo] += 1;
     }
@@ -317,7 +326,7 @@ function Analytics() {
             <h2 className="text-4xl font-black text-white mb-8">Difficulty Breakdown</h2>
 
             <div className="h-[260px]">
-              <ResponsiveContainer width="100%" height="100%">
+              <ResponsiveContainer width="100%" height={260}>
                 <PieChart>
                   <Pie
                     data={difficultyData}
