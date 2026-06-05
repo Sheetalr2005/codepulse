@@ -92,23 +92,38 @@ function Analytics() {
   // HEATMAP
   // =========================
 
-  const heatmapData = Array(70).fill(0);
+  const currentMonth = new Date();
 
-  
+    const year = currentMonth.getFullYear();
 
-  problems.forEach((problem) => {
-    if (!problem.solvedDate) return;
+    const month = currentMonth.getMonth();
 
-    const date = new Date(problem.solvedDate + "T00:00:00");
+    const monthName = currentMonth.toLocaleString("default", {
+      month: "long",
+    });
 
-    const daysAgo = Math.floor((new Date() - date) / (1000 * 60 * 60 * 24));
+    const daysInMonth = new Date(
+      year,
+      month + 1,
+      0
+    ).getDate();
 
-    
+    const heatmapData = Array(daysInMonth).fill(0);
 
-    if (daysAgo >= 0 && daysAgo < 70) {
-      heatmapData[69 - daysAgo] += 1;
-    }
-  });
+    problems.forEach((problem) => {
+      if (!problem.solvedDate) return;
+
+      const date = new Date(problem.solvedDate + "T00:00:00");
+
+      if (
+        date.getMonth() === month &&
+        date.getFullYear() === year
+      ) {
+        const day = date.getDate();
+
+        heatmapData[day - 1]++;
+      }
+    });
 
   
 
@@ -262,26 +277,27 @@ function Analytics() {
               <div className="text-3xl text-orange-400">🔥</div>
             </div>
 
-            <div className="flex justify-between text-gray-500 text-sm mb-5">
-              {months.map((month) => (
-                <span key={month}>{month}</span>
-              ))}
+            <div className="text-gray-400 text-sm mb-5">
+              {monthName} {year}
             </div>
 
             {/* FIXED GRID */}
 
-            <div className="grid grid-cols-10 gap-2 max-w-[500px]">
+            <div className="grid grid-cols-7 gap-2 max-w-[340px]">
               {heatmapData.map((count, i) => (
                 <div
-                  key={i}
-                  className={`w-5 h-5 rounded-md transition-all ${
-                    count >= 4
-                      ? "bg-green-400 shadow-[0_0_12px_rgba(74,222,128,0.8)]"
-                      : count >= 2
-                        ? "bg-green-500"
-                        : count >= 1
-                          ? "bg-green-700"
-                          : "bg-white/5"
+                    key={i}
+                    title={`Day ${i + 1} • ${count} solved`}
+                    className={`w-5 h-5 rounded-md transition-all ${
+                    count === 0
+                      ? "bg-white/5"
+                      : count === 1
+                      ? "bg-green-400"
+                      : count <= 3
+                      ? "bg-green-500"
+                      : count <= 5
+                      ? "bg-green-600"
+                      : "bg-green-700 shadow-[0_0_12px_rgba(74,222,128,0.8)]"
                   }`}
                 />
               ))}
