@@ -63,7 +63,7 @@ border-white/5
 px-6
 py-7
 flex-col
-z-50
+z-[9999]
 overflow-hidden
 "
       >
@@ -199,6 +199,48 @@ overflow-hidden
             </button>
           </div>
         </div>
+      </div>
+
+      {/* MOBILE BOTTOM NAV */}
+      {/* MOBILE BOTTOM NAV */}
+      <div
+        className="
+    lg:hidden
+    fixed
+    bottom-0
+    left-0
+    right-0
+    z-[9999]
+    bg-[#040B1A]/95
+    backdrop-blur-xl
+    border-t border-white/10
+    flex justify-around
+    py-3
+    shadow-[0_-10px_30px_rgba(0,0,0,0.5)]
+    pb-safe
+  "
+      >
+        {" "}
+        <NavLink to="/dashboard">
+          {({ isActive }) => (
+            <FaHome className={`text-2xl ${isActive ? "text-purple-400" : "text-gray-300"}`} />
+          )}
+        </NavLink>
+        <NavLink to="/add-problem">
+          {({ isActive }) => (
+            <FaPlus className={`text-2xl ${isActive ? "text-purple-400" : "text-gray-300"}`} />
+          )}
+        </NavLink>
+        <NavLink to="/problems">
+          {({ isActive }) => (
+            <FaCode className={`text-2xl ${isActive ? "text-purple-400" : "text-gray-300"}`} />
+          )}
+        </NavLink>
+        <NavLink to="/analytics">
+          {({ isActive }) => (
+            <FaChartBar className={`text-2xl ${isActive ? "text-purple-400" : "text-gray-300"}`} />
+          )}
+        </NavLink>
       </div>
     </>
   );

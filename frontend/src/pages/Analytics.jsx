@@ -68,8 +68,9 @@ function Analytics() {
   const today = new Date();
 
   const dates = [];
+  const totalDays = window.innerWidth < 640 ? 56 : 90;
 
-  for (let i = 89; i >= 0; i--) {
+  for (let i = totalDays - 1; i >= 0; i--) {
     const d = new Date();
     d.setDate(d.getDate() - i);
     d.setHours(0, 0, 0, 0);
@@ -177,9 +178,9 @@ function Analytics() {
 
   return (
     <MainLayout>
-      <div className="space-y-8">
+      <div className="space-y-8 pb-32 lg:pb-0">
+        {" "}
         {/* HERO */}
-
         <div className="relative overflow-hidden rounded-[40px] border border-white/10 bg-gradient-to-r from-[#111827] via-[#0f172a] to-[#071226] p-8 lg:p-12">
           <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
             <div>
@@ -261,9 +262,7 @@ function Analytics() {
             </motion.div>
           </div>
         </div>
-
         {/* STATS */}
-
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -330,14 +329,13 @@ function Analytics() {
           </motion.div>
         </div>
         {/* HEATMAP + DIFFICULTY */}
-
         <div className="grid grid-cols-1 xl:grid-cols-[1.6fr_0.8fr] gap-6">
           {/* HEATMAP */}
 
           <div className="bg-[#0f172a]/80 border border-white/10 rounded-[32px] p-8">
             <div className="flex items-center justify-between mb-8">
               <div>
-                <h2 className="text-4xl font-black text-white">Submission Heatmap</h2>
+                <h2 className="text-2xl sm:text-4xl font-black text-white">Submission Heatmap</h2>
 
                 <p className="text-gray-400 mt-2">Your coding activity</p>
               </div>
@@ -347,15 +345,20 @@ function Analytics() {
             </div>
 
             {/* MONTHS */}
-            <div className="flex text-sm text-gray-500 mb-6 ml-[145px]">
+            <div className="hidden md:flex text-sm text-gray-500 mb-6 ml-[145px]">
               <span className="mr-[160px]">Apr</span>
               <span className="mr-[160px]">May</span>
               <span>Jun</span>
             </div>
-
-            <div className="flex items-start gap-5">
+            <div className="md:hidden flex justify-around text-xs text-gray-500 mb-4 ml-10">
+              <span>May</span>
+              <span>Jun</span>
+            </div>
+            <div className="flex  xl:flex-row items-start gap-6">
+              {" "}
               {/* DAYS */}
-              <div className="flex flex-col justify-between h-[250px] text-xs text-gray-500 pt-1">
+              <div className="flex flex-col gap-[16px] sm:gap-[30px] text-xs text-gray-500 pt-[2px] mr-3">
+                {" "}
                 <span>Mon</span>
                 <span>Tue</span>
                 <span>Wed</span>
@@ -365,7 +368,7 @@ function Analytics() {
                 <span>Sun</span>
               </div>
               {/* GRID */}
-              <div className="grid grid-flow-col grid-rows-7 gap-[10px]">
+              <div className="grid grid-flow-col grid-rows-7 gap-[9px] sm:gap-[8px] xl:gap-[10px]">
                 {" "}
                 {dates.map((date, index) => {
                   const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
@@ -384,7 +387,7 @@ function Analytics() {
                         scale: 1.15,
                       }}
                       className={`
-              w-9 h-9 rounded-[7px]
+            w-5 h-5 sm:w-5 sm:h-6 xl:w-11 xl:h-11 rounded-[7px]
 
               ${
                 intensity === 0
@@ -405,9 +408,9 @@ function Analytics() {
                 })}
               </div>
               {/* STREAK */}
-              <div className="flex flex-col gap-5 ml-auto">
+              <div className="hidden xl:flex flex-col gap-5">
                 {" "}
-                <div className="bg-[#111827] border border-orange-500/10 rounded-3xl p-5 w-[170px]">
+                <div className="bg-[#111827] border border-orange-500/10 rounded-3xl p-5 w-full xl:w-[170px]">
                   <div className="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
                     <Flame className="text-orange-400" size={22} />
                   </div>
@@ -417,7 +420,7 @@ function Analytics() {
 
                   <p className="text-xs text-gray-500 mt-2">Keep the streak alive</p>
                 </div>
-                <div className="bg-[#111827] border border-purple-500/10 rounded-3xl p-5 w-[170px]">
+                <div className="bg-[#111827] border border-purple-500/10 rounded-3xl p-5 w-full xl:w-[170px]">
                   <div className="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center">
                     <Trophy className="text-purple-400" size={22} />
                   </div>
@@ -448,13 +451,15 @@ function Analytics() {
 
           {/* DIFFICULTY BREAKDOWN */}
 
-          <div className="bg-[#0f172a]/80 border border-white/10 rounded-[32px] p-8">
-            <h2 className="text-4xl font-black text-white mb-2">Difficulty Breakdown</h2>
-
+          <div className="bg-[#0f172a]/80 border border-white/10 rounded-[32px] p-5 sm:p-8 overflow-hidden">
+            {" "}
+            <h2 className="text-2xl sm:text-4xl font-black text-white mb-2">
+              Difficulty Breakdown
+            </h2>
             <p className="text-gray-400 mb-8">Problem distribution</p>
-
-            <div className="h-[300px] relative">
+            <div className="relative h-[260px] sm:h-[300px] min-h-[260px] overflow-hidden">
               <ResponsiveContainer width="100%" height="100%">
+                {" "}
                 <PieChart>
                   <Pie
                     data={difficultyData}
@@ -477,14 +482,12 @@ function Analytics() {
                   </Pie>
                 </PieChart>
               </ResponsiveContainer>
-
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
+              <div className="absolute inset-0 z-10 pointer-events-none flex flex-col items-center justify-center">
+                {" "}
                 <h2 className="text-5xl font-black text-white">{totalProblems}</h2>
-
                 <p className="text-gray-400 mt-2">Problems</p>
               </div>
             </div>
-
             <div className="grid grid-cols-3 gap-4 mt-4">
               {difficultyData.map((item) => (
                 <div key={item.name} className="bg-[#111827]/60 rounded-2xl p-4 text-center">
@@ -511,14 +514,12 @@ function Analytics() {
             </div>
           </div>
         </div>
-
         {/* BOTTOM */}
-
         <div className="grid grid-cols-1 xl:grid-cols-[1.6fr_0.8fr] gap-6">
           {" "}
           {/* TOPICS */}
           <div className="bg-[#0f172a]/80 border border-white/10 rounded-[32px] p-8">
-            <h2 className="text-4xl font-black text-white mb-8">Problems by Topic</h2>
+            <h2 className="text-2xl sm:text-4xl font-black text-white mb-8">Problems by Topic</h2>
 
             {topicCounts.length > 0 ? (
               <div className="space-y-7">
@@ -559,7 +560,7 @@ function Analytics() {
           </div>
           {/* RECOMMENDATIONS */}
           <div className="bg-[#0f172a]/80 border border-white/10 rounded-[32px] p-8">
-            <h2 className="text-4xl font-black text-white mb-8">Recommended For You</h2>
+            <h2 className="text-2xl sm:text-4xl font-black text-white mb-8">Recommended For You</h2>
 
             <div className="space-y-5">
               {recommendations.map((item, index) => (
@@ -573,6 +574,8 @@ function Analytics() {
           </div>
         </div>
       </div>
+
+      <div className="h-28 lg:hidden"></div>
     </MainLayout>
   );
 }

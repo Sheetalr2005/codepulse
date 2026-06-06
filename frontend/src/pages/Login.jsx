@@ -42,10 +42,7 @@ function Login() {
     try {
       setLoading(true);
 
-      const response = await axios.post(
-  `${import.meta.env.VITE_API_URL}/api/auth/login`,
-  formData
-);
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, formData);
       console.log("LOGIN RESPONSE:", response.data);
       localStorage.setItem("token", response.data.token);
 
@@ -78,9 +75,9 @@ function Login() {
 
         {/* GLOW */}
 
-        <div className="absolute top-[-150px] left-[15%] w-[450px] h-[450px] bg-purple-700/20 blur-[140px] rounded-full"></div>
+        <div className="absolute top-[-150px] left-[15%] w-full max-w-[450px] h-[450px] bg-purple-700/20 blur-[140px] rounded-full"></div>
 
-        <div className="absolute bottom-[-150px] right-[10%] w-[450px] h-[450px] bg-blue-600/20 blur-[140px] rounded-full"></div>
+        <div className="absolute bottom-[-150px] right-[10%] w-full max-w-[450px] h-[450px] bg-blue-600/20 blur-[140px] rounded-full"></div>
       </div>
 
       {/* CONTENT */}
@@ -105,7 +102,7 @@ function Login() {
           {/* LOGO */}
 
           <div className="mb-10">
-            <h1 className="text-7xl font-black tracking-tight bg-gradient-to-r from-white via-purple-200 to-purple-500 bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-7xl font-black tracking-tight bg-gradient-to-r from-white via-purple-200 to-purple-500 bg-clip-text text-transparent">
               CodePulse
             </h1>
 

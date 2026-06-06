@@ -241,7 +241,7 @@ function Dashboard() {
                 <span className="text-gray-300">Smart Interview Dashboard</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl xl:text-6xl font-black tracking-tight leading-[1]">
+              <h1 className="text-3xl sm:text-5xl xl:text-6xl font-black tracking-tight leading-[1]">
                 Welcome
                 <span className="block bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
                   Back
@@ -262,8 +262,8 @@ function Dashboard() {
               transition={{ duration: 0.5 }}
               className="
                 relative
-                w-[170px]
-                h-[170px]
+                w-[220px]
+                h-[220px]
                 sm:w-[220px]
                 sm:h-[220px]
                 mx-auto
@@ -382,9 +382,9 @@ function Dashboard() {
           <div className="xl:col-span-2">
             <Card className="bg-[#0f172a]/80 border border-white/10 p-6 rounded-3xl min-h-[320px]">
               {" "}
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+                {" "}
                 <h2 className="text-3xl font-bold">Recent Problems</h2>
-
                 <Button onClick={() => (window.location.href = "/problems")}>View All</Button>
               </div>
               <div className="space-y-4 max-h-[450px] overflow-y-auto pr-2">
@@ -393,7 +393,7 @@ function Dashboard() {
                   <div
                     key={problem.id}
                     className="
-flex justify-between items-center
+flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4
 bg-white/5
 p-4
 rounded-2xl
@@ -450,7 +450,7 @@ cursor-pointer
               {" "}
               <div className="absolute top-[-50px] right-[-50px] w-40 h-40 bg-purple-500/20 blur-3xl rounded-full" />
               <div className="p-3 relative z-10">
-                <h2 className="text-2xl font-bold mb-6">Consistency Tracker</h2>
+                <h2 className="text-xl sm:text-2xl  font-bold mb-6">Consistency Tracker</h2>
 
                 <div className="bg-white/5 border border-white/10 rounded-3xl p-5">
                   <div className="flex items-center justify-between mb-6">
@@ -496,7 +496,9 @@ cursor-pointer
               {" "}
               <div className="absolute top-[-40px] right-[-40px] w-32 h-32 bg-purple-500/20 blur-3xl rounded-full" />
               <div className="absolute bottom-[-40px] left-[-40px] w-32 h-32 bg-blue-500/20 blur-3xl rounded-full" />
-              <h2 className="text-2xl font-bold mb-5 relative z-10">Daily Motivation 🚀</h2>
+              <h2 className="text-xl sm:text-2xl  font-bold mb-5 relative z-10">
+                Daily Motivation 🚀
+              </h2>
               <div className="bg-white/5 border border-white/10 rounded-2xl p-5 relative z-10">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center text-2xl">

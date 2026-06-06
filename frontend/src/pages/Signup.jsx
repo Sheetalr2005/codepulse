@@ -58,9 +58,9 @@ function Signup() {
       <div className="absolute inset-0">
         <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:60px_60px]"></div>
 
-        <div className="absolute top-[-150px] left-[15%] w-[450px] h-[450px] bg-purple-700/20 blur-[140px] rounded-full"></div>
+        <div className="absolute top-[-150px] left-[15%] w-full max-w-[450px] h-[450px] bg-purple-700/20 blur-[140px] rounded-full"></div>
 
-        <div className="absolute bottom-[-150px] right-[10%] w-[450px] h-[450px] bg-blue-600/20 blur-[140px] rounded-full"></div>
+        <div className="absolute bottom-[-150px] right-[10%] w-full max-w-[450px] h-[450px] bg-blue-600/20 blur-[140px] rounded-full"></div>
       </div>
 
       <div className="relative z-10 w-full max-w-[1400px] grid grid-cols-1 xl:grid-cols-2 gap-16 items-center">
@@ -71,7 +71,7 @@ function Signup() {
           className="hidden xl:block"
         >
           <div className="mb-10">
-            <h1 className="text-7xl font-black tracking-tight bg-gradient-to-r from-white via-purple-200 to-purple-500 bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-7xl font-black tracking-tight bg-gradient-to-r from-white via-purple-200 to-purple-500 bg-clip-text text-transparent">
               CodePulse
             </h1>
 
