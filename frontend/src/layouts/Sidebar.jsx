@@ -1,5 +1,4 @@
 import { FaHome, FaPlus, FaCode, FaChartBar, FaSignOutAlt } from "react-icons/fa";
-
 import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -42,9 +41,22 @@ function Sidebar() {
             </h1>
           </div>
         </div>
-
         {/* USER */}
-        <div className="text-sm text-gray-300 capitalize">{username}</div>
+        <div className="flex items-center gap-3">
+          <span className="text-sm text-gray-300 capitalize">{username}</span>
+
+          <button
+            onClick={() => {
+              localStorage.removeItem("token");
+              localStorage.removeItem("email");
+              localStorage.removeItem("userId");
+              navigate("/login");
+            }}
+            className="text-red-400 text-xl"
+          >
+            <FaSignOutAlt />
+          </button>
+        </div>{" "}
       </div>
 
       {/* DESKTOP SIDEBAR */}

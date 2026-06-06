@@ -23,15 +23,16 @@ function LandingPage() {
 
       {/* CONTENT */}
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-8">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8">
+        {" "}
         {/* NAVBAR */}
-
-        <div className="sticky top-0 z-50 backdrop-blur-xl bg-[#030712]/70 border-b border-white/5">
+        <div className="sticky top-0 z-50 md:backdrop-blur-xl md:bg-[#030712]/70 md:border-b md:border-white/5">
+          {" "}
           <div className="flex items-center justify-between py-6">
             {/* LOGO */}
 
             <div>
-              <h1 className="text-5xl font-black tracking-tight bg-gradient-to-r from-white via-purple-200 to-purple-500 bg-clip-text text-transparent">
+              <h1 className="text-3xl sm:text-5xl font-black tracking-tight bg-gradient-to-r from-white via-purple-200 to-purple-500 bg-clip-text text-transparent">
                 CodePulse
               </h1>
 
@@ -40,27 +41,25 @@ function LandingPage() {
 
             {/* BUTTONS */}
 
-            <div className="flex items-center gap-4">
+            <div className="flex gap-2 sm:gap-4">
+              {" "}
               <Link
                 to="/login"
-                className="px-6 py-3 rounded-2xl border border-white/10 bg-white/[0.02] text-gray-300 hover:bg-white/[0.05] hover:text-white transition-all duration-300"
+                className="px-4 sm:px-6 py-2 sm:py-3 rounded-2xl border border-white/10 bg-white/[0.02] text-gray-300 hover:bg-white/[0.05] hover:text-white transition-all duration-300"
               >
                 Login
               </Link>
-
               <Link
                 to="/signup"
-                className="px-6 py-3 rounded-2xl bg-gradient-to-r from-purple-600 to-blue-500 font-semibold hover:shadow-[0_0_35px_rgba(139,92,246,0.35)] transition-all duration-300"
+                className="px-4 sm:px-6 py-2 sm:py-3 rounded-2xl bg-gradient-to-r from-purple-600 to-blue-500 font-semibold hover:shadow-[0_0_35px_rgba(139,92,246,0.35)] transition-all duration-300"
               >
                 Get Started
               </Link>
             </div>
           </div>
         </div>
-
         {/* HERO */}
-
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-20 items-center min-h-[88vh]">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-20 items-center min-h-[88vh]">
           {/* LEFT */}
 
           <motion.div
@@ -92,7 +91,7 @@ function LandingPage() {
 
               {/* TITLE */}
 
-              <h1 className="text-7xl xl:text-8xl font-black leading-[0.98] tracking-tight">
+              <h1 className="text-5xl sm:text-7xl xl:text-8xl font-black leading-[0.98] tracking-tight">
                 Level Up
                 <span className="block bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
                   Your Coding
@@ -102,7 +101,7 @@ function LandingPage() {
 
               {/* DESC */}
 
-              <p className="text-xl text-gray-400 mt-8 leading-relaxed max-w-[580px]">
+              <p className="text-base sm:text-xl text-gray-400 mt-8 leading-relaxed max-w-[580px]">
                 Organize coding problems, monitor interview preparation, track consistency, and
                 analyze your DSA progress with a premium developer-focused dashboard.
               </p>
@@ -134,21 +133,21 @@ function LandingPage() {
 
               {/* STATS */}
 
-              <div className="flex flex-wrap gap-12 mt-16">
+              <div className="grid grid-cols-3 gap-4 mt-12 sm:flex sm:flex-wrap sm:gap-12 sm:mt-16">
                 <div>
-                  <h2 className="text-5xl font-black">500+</h2>
+                  <h2 className="text-3xl sm:text-5xl font-black">500+</h2>
 
                   <p className="text-gray-500 text-sm mt-3">Problems Tracked</p>
                 </div>
 
                 <div>
-                  <h2 className="text-5xl font-black">95%</h2>
+                  <h2 className="text-3xl sm:text-5xl font-black">95%</h2>
 
                   <p className="text-gray-500 text-sm mt-3">Interview Readiness</p>
                 </div>
 
                 <div>
-                  <h2 className="text-5xl font-black">24/7</h2>
+                  <h2 className="text-3xl sm:text-5xl font-black">24/7</h2>
 
                   <p className="text-gray-500 text-sm mt-3">Progress Monitoring</p>
                 </div>
@@ -178,7 +177,7 @@ function LandingPage() {
 
             {/* DASHBOARD */}
 
-            <div className="relative rounded-[40px] border border-white/10 bg-[#0b1120]/80 backdrop-blur-xl p-8 shadow-[0_0_60px_rgba(139,92,246,0.12)] overflow-hidden hover:-translate-y-1 transition-all duration-500">
+            <div className="relative rounded-[40px] border border-white/10 bg-[#0b1120]/80 backdrop-blur-xl p-5 sm:p-8 shadow-[0_0_60px_rgba(139,92,246,0.12)] overflow-hidden hover:-translate-y-1 transition-all duration-500">
               {/* GLOW */}
 
               <div className="absolute top-[-60px] right-[-60px] w-[220px] h-[220px] bg-purple-600/20 blur-[100px] rounded-full"></div>
@@ -187,7 +186,7 @@ function LandingPage() {
 
               <div className="flex items-center justify-between mb-8 relative z-10">
                 <div>
-                  <h2 className="text-3xl font-bold">Dashboard</h2>
+                  <h2 className="text-2xl sm:text-3xl font-bold">Dashboard</h2>
 
                   <p className="text-gray-400 mt-2">Smart Interview Analytics</p>
                 </div>
@@ -203,13 +202,13 @@ function LandingPage() {
                 <div className="rounded-3xl bg-white/[0.03] border border-white/10 p-6">
                   <p className="text-gray-400 mb-3">Solved</p>
 
-                  <h2 className="text-5xl font-black text-purple-400">124</h2>
+                  <h2 className="text-3xl sm:text-5xl font-black text-purple-400">124</h2>
                 </div>
 
                 <div className="rounded-3xl bg-white/[0.03] border border-white/10 p-6">
                   <p className="text-gray-400 mb-3">Streak</p>
 
-                  <h2 className="text-5xl font-black text-green-400">18</h2>
+                  <h2 className="text-3xl sm:text-5xl font-black text-green-400">18</h2>
                 </div>
               </div>
 
@@ -222,7 +221,7 @@ function LandingPage() {
                   <p className="text-white font-semibold">78%</p>
                 </div>
 
-                <div className="w-full h-5 bg-[#111827] rounded-full overflow-hidden">
+                <div className="w-full h-3 sm:h-5 bg-[#111827] rounded-full overflow-hidden">
                   <div className="h-full w-[78%] bg-gradient-to-r from-purple-500 to-blue-500 rounded-full shadow-[0_0_25px_rgba(139,92,246,0.7)]"></div>
                 </div>
               </div>
