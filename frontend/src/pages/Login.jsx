@@ -43,10 +43,9 @@ function Login() {
       setLoading(true);
 
       const response = await axios.post(
-        "${import.meta.env.VITE_API_URL}/api/auth/login",
-
-        formData,
-      );
+  `${import.meta.env.VITE_API_URL}/api/auth/login`,
+  formData
+);
       console.log("LOGIN RESPONSE:", response.data);
       localStorage.setItem("token", response.data.token);
 
