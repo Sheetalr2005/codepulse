@@ -10,17 +10,13 @@ function Sidebar() {
   const username = localStorage.getItem("email")?.split("@")[0];
   const [streak, setStreak] = useState(0);
 
-useEffect(() => {
-  const currentStreak =
-    parseInt(localStorage.getItem("currentStreak")) || 0;
+  useEffect(() => {
+    const currentStreak = parseInt(localStorage.getItem("currentStreak")) || 0;
 
-  console.log(
-    "LOCAL STORAGE STREAK =",
-    localStorage.getItem("currentStreak")
-  );
+    console.log("LOCAL STORAGE STREAK =", localStorage.getItem("currentStreak"));
 
-  setStreak(currentStreak);
-}, []);
+    setStreak(currentStreak);
+  }, []);
 
   const navItemStyle = `
     flex items-center gap-4
