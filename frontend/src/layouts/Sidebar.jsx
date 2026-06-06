@@ -10,25 +10,17 @@ function Sidebar() {
   const username = localStorage.getItem("email")?.split("@")[0];
   const [streak, setStreak] = useState(0);
 
-  useEffect(() => {
-    fetchStreak();
-  }, []);
+useEffect(() => {
+  const currentStreak =
+    parseInt(localStorage.getItem("currentStreak")) || 0;
 
-  const fetchStreak = async () => {
-    try {
-      const userId = localStorage.getItem("userId");
+  console.log(
+    "LOCAL STORAGE STREAK =",
+    localStorage.getItem("currentStreak")
+  );
 
-      const response = await axios.get(
-  `${import.meta.env.VITE_API_URL}/api/solved/streak/${userId}`,
-);
-
-console.log("STREAK RESPONSE =", response.data);
-
-setStreak(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  setStreak(currentStreak);
+}, []);
 
   const navItemStyle = `
     flex items-center gap-4
