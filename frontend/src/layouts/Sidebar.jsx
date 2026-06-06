@@ -19,10 +19,12 @@ function Sidebar() {
       const userId = localStorage.getItem("userId");
 
       const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}/api/solved/streak/${userId}`,
-      );
+  `${import.meta.env.VITE_API_URL}/api/solved/streak/${userId}`,
+);
 
-      setStreak(response.data);
+console.log("STREAK RESPONSE =", response.data);
+
+setStreak(response.data);
     } catch (error) {
       console.log(error);
     }
