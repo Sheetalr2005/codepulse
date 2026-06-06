@@ -47,7 +47,7 @@ function Login() {
 
         formData,
       );
-
+      console.log("LOGIN RESPONSE:", response.data);
       localStorage.setItem("token", response.data.token);
 
       localStorage.setItem("userId", response.data.userId);
