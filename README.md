@@ -227,4 +227,4 @@ Sheetal R
 
 # 🎯 Project Vision
 
-CodePulse aims to become an intelligent interview preparation platform that helps students not only track solved problems, but also understand preparation quality, coding consistency, and interview readiness through analytics-driven insights.
+CodePulse aims to help students and aspiring software engineers stay consistent in their coding journey by providing a structured way to track solved problems, monitor progress, and analyze preparation patterns. Through visual analytics, streak tracking, and performance insights, the platform encourages disciplined practice and helps users prepare more effectively for technical interviews.
