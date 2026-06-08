@@ -166,11 +166,25 @@ cd backend
 
 ---
 
+
+# ☁️ Deployment
+
+- Frontend: Render
+- Backend: Render
+- Database: Neon PostgreSQL
+
+Live Demo:
+https://codepulse-frontend-zk7u.onrender.com
+
+---
+
 # 📌 Future Enhancements
 
 * JWT Authentication
+* AI-based DSA Recommendations
 * LeetCode API Integration
 * Advanced Analytics
+* Dark / Light Theme Switching
 * Leaderboards
 * Interview Readiness Scoring
 * Cloud Deployment
