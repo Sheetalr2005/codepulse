@@ -6,6 +6,14 @@ The platform transforms raw coding activity into meaningful preparation insights
 
 ---
 
+### Live Demo
+https://codepulse-frontend-zk7u.onrender.com
+
+### GitHub Repository
+https://github.com/Sheetalr2005/codepulse
+
+---
+
 # ✨ Features
 
 ## 🔐 Authentication System
@@ -77,7 +85,7 @@ The platform transforms raw coding activity into meaningful preparation insights
 
 ## Database
 
-* MySQL
+* PostgreSQL (Neon)
 
 ---
 
@@ -97,7 +105,7 @@ REST APIs
 ↓
 Spring Boot Backend
 ↓
-MySQL Database
+PostgreSQL (Neon)
 
 ---
 
@@ -161,10 +169,8 @@ cd backend
 # 📌 Future Enhancements
 
 * JWT Authentication
-* AI-based DSA Recommendations
 * LeetCode API Integration
 * Advanced Analytics
-* Dark / Light Theme Switching
 * Leaderboards
 * Interview Readiness Scoring
 * Cloud Deployment
