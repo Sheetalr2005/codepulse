@@ -1,4 +1,8 @@
 # 🚀 CodePulse — DSA Preparation Analytics Platform
+![React](https://img.shields.io/badge/React-18-blue)
+![Spring Boot](https://img.shields.io/badge/SpringBoot-3-green)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Neon-blue)
+![Render](https://img.shields.io/badge/Deployment-Render-purple)
 
 CodePulse is a full-stack DSA interview preparation platform that helps users track solved coding problems, maintain coding consistency, and analyze interview readiness through interactive dashboards and analytics.
 
@@ -7,9 +11,13 @@ The platform transforms raw coding activity into meaningful preparation insights
 ---
 
 ### Live Demo
+
 https://codepulse-frontend-zk7u.onrender.com
 
+> Note: The backend is hosted on Render's free tier and may take 30–60 seconds to wake up after inactivity.
+
 ### GitHub Repository
+
 https://github.com/Sheetalr2005/codepulse
 
 ---
@@ -115,6 +123,7 @@ https://github.com/Sheetalr2005/codepulse
 3. Password is verified using BCrypt hashing
 4. Session is authenticated
 5. User gains access to protected dashboard routes
+
 ---
 
 ## 📚 Problem Tracking Flow
