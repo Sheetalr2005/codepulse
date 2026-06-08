@@ -99,39 +99,31 @@ https://github.com/Sheetalr2005/codepulse
 
 # 🏗️ Project Architecture
 
-Frontend (React)
-↓
-REST APIs
-↓
-Spring Boot Backend
-↓
-PostgreSQL (Neon)
-
+- Frontend: React + Vite
+- Communication: REST APIs
+- Backend: Spring Boot
+- Database: PostgreSQL (Neon)
+  
 ---
 
 # ⚙️ Application Workflow
 
-## Authentication Flow
+## 🔐 Authentication Flow
 
-User Login
-↓
-Backend Credential Verification
-↓
-BCrypt Password Validation
-↓
-Protected Dashboard Access
-
+1. User enters login credentials
+2. Backend validates the request
+3. Password is verified using BCrypt hashing
+4. Session is authenticated
+5. User gains access to protected dashboard routes
 ---
 
-## Problem Tracking Flow
+## 📚 Problem Tracking Flow
 
-User Adds Solved Problem
-↓
-Backend Stores Problem Details
-↓
-Analytics Engine Updates Statistics
-↓
-Dashboard Visualizes Preparation Progress
+1. User adds a solved coding problem
+2. Backend stores problem details in PostgreSQL
+3. Analytics metrics are recalculated
+4. Dashboard updates solved counts, streaks, and statistics
+5. User can track preparation progress in real time
 
 ---
 
